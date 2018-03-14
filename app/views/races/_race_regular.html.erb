@@ -1,0 +1,16 @@
+<h1 class="pm-page-title">
+  <%= truncate race.title, length: 100 %>
+</h1>
+<hr>
+
+<%= content_tag :div, id: "lanes_regular_list", data: { length: @race.lanes.count(limit: 3) } do %>
+  <% race.lanes.order_by(price: :desc).limit(3).each_with_index do |lane, index| %>
+    <div class="pm-lane-info">
+    <%= content_tag :div, nil, id: "lane_chart_default_#{index}", class: 'lane-chart clearfix inline-block', data: { percent: lane.price } %>
+    <strong class="pm-text-percent">
+      <%= price_with_format lane.price %>
+    </strong>
+    <span class="text-primary"><%= lane.title %></span>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div id="race_list">
+  <section>
+    <ul id="category_tabs" class="list-inline text-uppercase pm-race-category">
+      <li role="presentation"><%= link_to 'All', races_path(:all), class: "pm-text-white", remote: false %></li>
+      <% Category.each do |category| %>
+        <li role="presentation"><%= link_to category.name, races_path(category.name), class: "pm-text-white", remote: false %></li>
+      <% end %>
+    </ul>
+    <div id="races">
+      <%= content_tag :ul, class: "list-group" do %>
+        <%= render @races, type: :simple %>
+      <% end %>
+      <%= paginate @races %>
+    </div>
+  </section>
+</div>

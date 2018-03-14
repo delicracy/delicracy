@@ -1,0 +1,26 @@
+<% type = :simple if type.nil? %>
+
+<li class="list-group-item">
+  <h4 class="list-group-item-heading"><%= link_to race.title, race, class: "pm-race-title" %></h4>
+  <p>
+  <%= simple_format truncate(race.description, length: 200) if race.preparing? %>
+  </p>
+
+  <% if race.prepared? %>
+    <div class="list-group-item-text pm-top-lane">
+      <span>
+        <%= race.top_lane.title %>
+      </span>
+    <%= content_tag :div, nil, id: "lane_chart_#{race_counter}", class: 'lane-chart clearfix inline-block pull-right', data: { percent: race.top_lane.price } %>
+      <span class="pm-top-lane-chart-text pull-right">
+        <%= price_with_format race.top_lane.price %>
+      </span>
+    </div>
+    <hr>
+    <%= content_tag :p, class: "list-group-item-text" do %>
+      <%= image_tag race.host.avatar.url, class: 'img-circle pm-img-avatar-thumb' %>
+      <%= content_tag :strong, race.host.name %>
+      <%= content_tag :span, " and #{[0, race.members.length - 1].max} others", class: "text-muted" %>
+    <% end %>
+  <% end %>
+</li>

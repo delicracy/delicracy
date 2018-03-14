@@ -1,0 +1,20 @@
+<header class="navbar navbar-default navbar-fixed-top height-50">
+  <div class="container height-50">
+    <nav>
+      <div class="navbar-header" style="width: 50px;">
+        <div class="navbar-text navbar-left">
+          <%= link_to root_path do %>
+            <%= glyphicon 'chevron-left', label: 'back button', class: 'pm-link-main-menu' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="collapse navbar-collapse text-center pm-navbar-title">
+        <% title_bar ||= nil %>
+        <span class="h3 text-uppercase"> <%= @title_bar || title_bar %> </span>
+        <div class="navbar-text navbar-right" style="margin-top: 10px; width: 50px;"></div>
+      </div>
+      <%= render "shared/flash_messages" %>
+    </nav>
+  </div>
+</header>

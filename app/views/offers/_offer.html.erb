@@ -1,0 +1,15 @@
+<% type = :default if type.nil? %>
+<tr>
+  <td><%= offer_counter + 1 %></td>
+  <% if type == :wallet %>
+    <td><%= link_to offer.race.title, race_path(offer.race) %></td>
+    <td><%= link_to offer.lane.title, race_path(offer.race, anchor: offer.lane.id), locals: { lane: offer.lane } %></td>
+  <% else %>
+    <td><%= offer.user.name %></td>
+  <% end %>
+  <td><%= offer.kind %></td>
+  <td><%= number_with_precision offer.lot, precision: 0 %></td>
+  <td><%= scaled_number offer.price %></td>
+  <td><%= scaled_number offer.volume %></td>
+  <td><%= offer.updated_at.localtime %></td>
+</tr>

@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to asset.race.title, race_path(asset.race) %></td>
+  <td><%= asset.lane.title %></td>
+  <td><%= asset.amount %></td>
+  <td><%= scaled_number asset.lane.price %></td>
+  <td><%= scaled_number asset.amount * asset.lane.price %></td>
+</tr>

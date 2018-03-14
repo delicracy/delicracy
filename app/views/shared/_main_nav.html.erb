@@ -1,0 +1,71 @@
+<div id="tracing_contents"></div>
+<div id="side_nav" class="pm-side-nav">
+
+  <% if logged_in? %>
+    <div class="text-center pm-side-nav-top">
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.avatar.url, class: "img-circle img-responsive center-block pm-img-avatar" %>
+        <span><%= volume_with_format current_user.current_balance %><span class="small text-muted"> D</span></span>
+        <i class="glyphicon glyphicon-menu-right pull-right pm-vertical-center"></i>
+      <% end %>
+    </div>
+
+    <div class="pm-side-nav-bottom">
+      <ul class="nav nav-stacked text-uppercase">
+        <li>
+          <%= link_to root_path, class: "text-default pm-text-white" do %>
+            <i class="glyphicon glyphicon-home"></i>Home
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_account_path(current_user), class: "text-default pm-text-white" do %>
+            <i class="glyphicon glyphicon-stats"></i>My Account
+          <% end %>
+        </li>
+        <% if admin? %>
+          <li>
+            <%= link_to user_import_path(current_user), class: "text-default pm-text-white" do %>
+              <i class="glyphicon glyphicon-import"></i>Import
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <hr>
+      <ul class="nav nav-stacked text-uppercase">
+        <li>
+          <%= link_to logout_path, class: "text-default pm-text-white", method: :delete do %>
+            <i class="glyphicon glyphicon-log-out"></i>Sign Out
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+  <% else %>
+    <div class="pm-side-nav-bottom">
+      <ul class="nav nav-stacked text-uppercase">
+        <li>
+          <%= link_to root_path, class: "text-default pm-text-white" do %>
+            <i class="glyphicon glyphicon-home"></i>Home
+          <% end %>
+        </li>
+        <li>
+          <%= link_to login_path, class: "text-default pm-text-white" do %>
+            <i class="glyphicon glyphicon-log-in"></i>Sign In
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+  <% end %>
+
+  <div class="pm-side-nav-bottom">
+  <hr>
+    <ul class="nav nav-stacked">
+      <li class="unstyled">
+        <%= link_to 'Terms', '', onclick: "newWindow('#{privacy_path}')" %>
+        &amp; 
+        <%= link_to 'Privacy', '', onclick: "newWindow('#{privacy_path}')", class: 'unstyled' %>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<%= form_with model: [lane.race, lane, offer], id: "offer_form_#{lane_counter}", local: true do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="form-group">
+    <%= form.label :lot, class: "control-label sr-only" %>
+    <%= form.number_field :lot, min: 0, max: lane.lot,  id: "offer_lot_#{lane_counter}", class: 'form-control', placeholder: "LOTS", data: { price: price, target: target } %>
+  </div>
+
+  <%= form.submit 'IN', class: 'btn btn-primary pm-btn-offer' %>
+  <%= form.submit 'OUT', class: 'btn btn-primary pm-btn-offer pull-right' %>
+<% end %>

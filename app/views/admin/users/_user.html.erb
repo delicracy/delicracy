@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to user.email, edit_user_path(user) %></td>
+  <td><%= user.name %></td>
+  <td><%= user.oraclable %></td>
+  <td><%= user.is_admin %></td>
+  <td><%= user.login_mode %></td>
+  <td><%= link_to 'reset', '#', data: { confirm: "Want to reset password?" }%></td>
+  <td><%= user.activated %></td>
+</tr>

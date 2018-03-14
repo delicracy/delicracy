@@ -1,0 +1,10 @@
+#chat_members_list li {
+  margin-top:10px;
+  position:relative;
+}
+
+#chat_members_list .pm-avatar {
+  width:35px;
+  margin-right:10px;
+}
+

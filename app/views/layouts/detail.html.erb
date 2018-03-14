@@ -1,0 +1,12 @@
+<% content_for :navbar do %>
+  <%= render 'layouts/navbar_detail' %>
+<% end %>
+
+<% content_for :container do %>
+  <div id="contents" class="container pm-container-detail">
+  <%= render "shared/main_nav" %>
+    <%= yield %>
+  </div>
+<% end %>
+
+<%= render template: 'layouts/application' %>

@@ -1,0 +1,167 @@
+.pm-race-detail {
+  margin:0 10px 20px 10px;
+  padding:1px 10px 10px 10px;
+  border-radius:10px;
+  border:2px solid #5278f5;
+  box-shadow:0px 0px 5px #cad5e0;
+}
+
+.pm-race-detail .pm-circle-chart {
+  width:23px;
+  margin-right:5px;
+}
+
+.pm-race-detail-small .pm-page-title {
+  font-size:1.2em;
+  line-height:1.3em;
+  color:#1e1e1e;
+}
+
+.pm-race-detail-regular .pm-page-title {
+  font-size:1.2em;
+  line-height:1.3em;
+  color:#1E1E1E;
+}
+
+.pm-race-detail-small {
+  background-color:#FFF;
+}
+
+.pm-race-detail-large {
+  position: relative;
+  top: -40px;
+  background-color:#F6F8F9;
+}
+
+#race_top_buttons {
+  margin: 20px 10px 28px 10px;
+}
+
+.pm-race-detail-large .pm-page-title {
+  font-size:1.1em;
+  color:#2B2B2B;
+  line-height:1.3em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pm-lane-group {
+  margin-bottom:40px;
+}
+
+.pm-race-info-list {
+  padding-left:20px;
+}
+
+.pm-race-detail-regular {
+  background-color:#FFF;
+}
+
+.pm-race-description {
+  color:#4F4D5D;
+  margin-top:28px;
+}
+
+.pm-race-detail h2 {
+  font-weight:700;
+  margin-top:20px;
+}
+
+.pm-label-oracle {
+  background-color:#E859E6;
+  font-size:55%;
+  margin-left:5px;
+}
+
+.pm-label-host {
+  background-color:#557EF6;
+}
+
+.pm-label-member {
+  background-color: #434242;
+}
+
+.pm-label-closed {
+  background-color: #c4ccd0;
+}
+
+.pm-text-oracle {
+  color:#E859E6;
+}
+
+.pm-text-host {
+  color:#557EF6;
+}
+
+.pm-badge-upper {
+  position:absolute;
+  left:25px;
+}
+
+.pm-navbar-race-detail {
+  height: 80px;
+}
+
+.pm-container-race-detail {
+  position: relative;
+  top: 0px;
+  z-index: 1200;
+  padding: 0px;
+}
+
+.pm-race-detail-regular .pm-text-percent {
+  margin-right:10px;
+}
+
+.pm-label-dday {
+  border-radius:1em;
+}
+
+.pm-badge-bottom {
+  top:17px;
+  left:-12px;
+}
+
+.pm-top-lane-color {
+  color:#FF5656;
+}
+
+.pm-race-detail-regular .pm-lane-info > * {
+  vertical-align: middle;
+}
+
+.pm-race-detail-regular .pm-lane-info  {
+  padding-bottom: 5px;
+}
+
+#widget-regular {
+  top: 80px;
+}
+
+.pm-container-chat {
+  position: relative;
+}
+
+.pm-chat-contents {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  overflow-x: hidden;
+  margin: auto;
+}
+
+#chat_frame {
+  width: inherit;
+  height: 100%;
+}
+
+.pm-img-detail {
+  max-width: 70%;
+}
+
+#navbar_race_detail {
+  z-index: 44;
+}
+
+

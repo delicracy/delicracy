@@ -1,0 +1,56 @@
+<div id="race_top_buttons">
+  <a id="close_large" href="#">
+    <i class="glyphicon glyphicon-remove"></i>
+  </a>
+</div>
+
+<h1 class="page-header pm-page-title"> 
+  <%= race.title %>
+  <span class="label label-default pull-right pm-label-dday"><%= "D-#{race.dday}" if race.dday %></span>
+</h1>
+
+<%#= render template: 'races/show', race: @race %>
+<!-- lanes list -->
+<% length = @race.lanes.length %>
+<div class="panel-group pm-lane-group" role="tablist" aria-multiselectable="true" id="lanes_list" data-length="<%= race.lanes.length %>">
+  <%= render @race.lanes %>
+</div>
+<div id="lane_form"></div>
+
+<h2 class="h5 text-uppercase">Total IN</h2>
+<p class="text-uppercase pm-text-emphasis"> 
+<span class="h4"><%= volume_with_format race.lanes.sum(&:in_volume) %></span><small> D</small>
+<% total_in_lots = race.lanes.sum(&:in_lot) %><br>
+<span class="h4"><%= lot_with_format(total_in_lots) %></span><small> lots</small><br>
+<hr>
+available IN in this race:
+<span class="h4"><%= lot_with_format(MY_APP[:investment_limit] - total_in_lots) %></span><small> lots</small>
+<br><span><%= volume_with_format current_user.current_balance %><span class="small text-muted"> D</span></span>
+</p>
+
+<%#= render 'chart_container' if race.prepared? %>
+
+<h2 class="h5 text-uppercase">race info</h2>
+<ul class="pm-race-info-list small text-uppercase text-strong">
+  <li><span class="text-muted">length: </span><span><%= "#{localtime(race.start_datetime)} ~ #{localtime(race.end_datetime)}" %></span></li>
+  <li><span class="text-muted">rule: </span><span><%= race.rule_label.upcase %></span></li>
+  <li><span class="text-muted">host: </span><span><%= race.host.name %></span></li>
+  <%# <li><span class="text-muted">oracle: </span><span class="pm-text-emphasis">[ game38 ]</span></li> %>
+  <li><span class="text-muted">MEMBERS:</span> <%= number_with_delimiter race.members.length %></li>
+  <li><span class="text-muted">MY IN:</span> <%= "#{lot_with_format current_user.lots_for_each_lane(race.lane_ids).inject(0) { |sum, item| sum += item[1] }} LOTS" %></li>
+</ul>
+
+<div>
+  <%= image_tag(race.picture_url, class: 'img-responsive img-thumbnail pm-img-detail') if race.picture? %>
+  <%= youtube_iframe race.youtube_id if race.youtube_id %> 
+</div>
+
+<p class="small pm-race-description">
+<%= simple_format race.description %>
+</p>
+
+<% if admin? %>
+  <%= link_to 'Edit', edit_race_path(@race) %> |
+  <%= link_to 'Destroy', @race, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+

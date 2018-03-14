@@ -1,0 +1,7 @@
+<% content_for(:container) do %>
+<div class="container pm-contents" id="contents">
+  <%= render "shared/main_nav" %>
+  <%= yield %>
+</div>
+<% end %>
+<%= render template: 'layouts/application' %>

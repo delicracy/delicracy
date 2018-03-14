@@ -1,0 +1,46 @@
+#account_tabs .tab-content {
+  background-color:#F5F5F5;
+  padding: 5px 0px;
+}
+
+.pm-transaction-list-item {
+  margin-bottom:10px;
+  background-color:#FFF;
+  border-bottom:1px solid #EAEDEE;
+  border-top:1px solid #EAEDEE;
+  /*padding-left:15px;*/
+  padding-top:10px;
+  padding-bottom:10px;
+  width:100%;
+  margin-left:0px;
+}
+
+.pm-portfolio-list-item {
+  background-color:#FFF;
+  border:1px solid #EAEDEE;
+  padding:10px;
+  margin:10px;
+  border-radius:10px;
+}
+
+#account_tabs > ul > li {
+  width:50%;
+}
+
+#transaction_tabs li {
+  width:initial;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
+  border:0px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border:0px;
+  border-bottom:3px solid;
+  border-bottom-color:rgb(0,87,232);
+}
+
+#account_tabs > ul {
+  background-color: white;
+}

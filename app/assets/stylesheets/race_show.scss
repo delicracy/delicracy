@@ -1,0 +1,98 @@
+// Place all the styles related to the Races controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* pm layout */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  // background-color: #F6F9FA;
+  height: 100%;
+}
+
+.base_width {
+  width: 100%;
+  // max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-top {
+  background-color: #eee;
+  // height: 45px;
+  position: relative;
+  z-index: 999;
+}
+
+#widget_block {
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  width: 100%;
+}
+
+#widget_page {
+  width: 90%;
+  margin: 0px auto;
+  background-color: #F6F9FA;
+  border-radius: 12px;
+  // color: #fff;
+  padding: 18px;
+  overflow-y: hidden;
+}
+
+.page_body {
+  position: relative;
+  height: 100%;
+  // margin-top: -45px;
+}
+
+#frame_chatting {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.widget-page {
+  background-color: #F6F9FA;
+  margin: 0px auto;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+#widget_default {
+  overflow-y: visible;
+}
+
+.widget-minimum {
+    height: 60px;
+}
+
+.widget-default {
+    height: 180px;
+}
+
+#chat_members_list {
+  width:300px;
+  transition:0.5s;
+  right:0;
+  top:0;
+  position:fixed;
+  z-index:2000;
+  height:100%;
+  background-color: white;
+  padding: 15px;
+}

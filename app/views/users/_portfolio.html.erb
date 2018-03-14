@@ -1,0 +1,54 @@
+<div class="tab-pane fade in active" role="tabpanel" id="portfolio">
+  <div class="row h6 pm-portfolio-list-item">
+    <div class="col-xs-8">
+      <ul class="text-uppercase text-muted" style="line-height:1.8em;padding-left:15px;">
+        <li style="width:100%;"><span>my races</span></li>
+        <li style="width:100%;"><span>my lanes</span></li>
+      </ul>
+    </div>
+    <div class="col-xs-4 text-right">
+      <ul class="list-unstyled" style="line-height:1.8em;">
+        <li style="width:100%;">
+          <span><%= number_with_delimiter @user.races.size %></span>
+        </li>
+        <li style="width:100%;">
+          <span><%= number_with_delimiter @user.assets.size %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row h6 pm-portfolio-list-item" style="padding-right: 0px;">
+    <div class="col-xs-7">
+      <ul class="text-uppercase" style="line-height:1.8em;padding-left:15px;">
+        <li style="width:100%;"><span>current balance</span></li>
+        <li style="width:100%;"><span>total in</span></li>
+      </ul>
+    </div>
+    <div class="col-xs-5 text-right" style="padding-left: 5px;">
+      <ul class="list-unstyled" style="line-height:1.8em;">
+        <li style="width:100%;">
+          <span><%= volume_with_format @user.current_balance %>
+          <span class="text-muted small"> D</span>
+          </span>
+        </li>
+        <li style="width:100%;">
+          <span><%= volume_with_format @user.assets.total_volume %>
+          <span class="text-muted small"> D</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-12">
+      <hr style="margin-top:5px;margin-bottom:5px;">
+    </div>
+    <div class="col-xs-12">
+      <p style="padding-left:15px;">
+      <span class="text-uppercase text-muted">total </span>
+      <span class="pull-right text-primary clearfix" style="font-size:1.3em;">
+        <%= volume_with_format (@user.current_balance + @user.assets.total_volume) %>
+        <small> D</small>
+      </span>
+      </p>
+    </div>
+  </div>
+</div>

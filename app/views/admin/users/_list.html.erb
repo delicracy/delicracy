@@ -1,0 +1,12 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <%= render 'thead' %>
+    </thead>
+    <tbody>
+      <%= render objects %>
+    </tbody>
+  </table>
+  <%= paginate objects %>
+  <%= page_entries_info objects %>
+</div>

@@ -1,0 +1,21 @@
+<div id="chat_members_list">
+  <h1 class="text-uppercase text-center h4 text-strong">
+    <a id="close_button" href='#'>
+      <i class="glyphicon glyphicon-remove pull-left"></i>
+    </a>
+    members
+  </h1>
+
+  <ul class="list-unstyled">
+    <li>
+      <%= image_tag current_user.avatar_url, class: "img-circle", style: "width:35px;margin-right:10px;" %>
+      <i class="glyphicon glyphicon-ok-sign pm-text-host pm-badge-upper"></i>Alexander Kowalksi<span class="label label-default text-uppercase pm-label-host pm-vertical-center" style="font-size:55%;margin-right:5px;margin-left:5px;">host </span></li>
+    <li style="margin-top:10px;position:relative;">
+      <%= image_tag current_user.avatar_url, class: "img-circle", style: "width:35px;margin-right:10px;" %>
+      Alexander Kowalksi<i class="glyphicon glyphicon-ok-sign pm-text-oracle pm-badge-upper"></i><span class="label label-default text-uppercase pm-label-oracle pm-vertical-center">oracle </span></li>
+    <li style="margin-top:10px;">
+      <%= image_tag current_user.avatar_url, class: "img-circle", style: "width:35px;margin-right:10px;" %>
+      Alexander Kowalksi
+    </li>
+  </ul>
+</div>

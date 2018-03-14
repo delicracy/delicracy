@@ -1,0 +1,26 @@
+<div class="tab-pane fade" role="tabpanel" id="transactions">
+  <div id="transaction_tabs">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <%= link_to 'All', user_histories_path(@user, :all), remote: true, role: "tab", data: { toggle: "tab" } %>
+      </li>
+      <li>
+        <%= link_to 'Credit', user_histories_path(@user, :credit), remote: true, role: "tab", data: { toggle: "tab" } %>
+      </li>
+      <li>
+        <%= link_to 'Debit', user_histories_path(@user, :debit), remote: true, role: "tab", data: { toggle: "tab" } %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="histories">
+        <%= render 'histories/histories' %>
+      </div>
+
+      <div class="tab-pane" role="tabpanel" id="transactions-credit">
+      </div>
+      <div class="tab-pane" role="tabpanel" id="transactions-debit">
+      </div>
+    </div>
+  </div>
+</div>

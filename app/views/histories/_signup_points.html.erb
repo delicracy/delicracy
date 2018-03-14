@@ -1,0 +1,21 @@
+<% basis = history.basis %>
+
+<div class="row pm-transaction-list-item">
+  <div class="col-xs-7 h4">
+    <span class="text-primary text-uppercase">
+      <%= history.name.humanize %>
+    </span>
+    <br><span class="text-muted small">
+      <%= localtime(history.basis.updated_at) %>
+    </span>
+  </div>
+
+  <div class="col-xs-5 text-right h4">
+    <span class="text-info">
+      <%= volume_with_format basis.volume %>
+    </span>
+    <br><span class="small text-muted">
+      <%= volume_with_format history.balance %>
+    </span>
+  </div>
+</div>

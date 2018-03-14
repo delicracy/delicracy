@@ -1,0 +1,13 @@
+COMMON: &COMMON
+  options:
+    # Raise an error when performing a #find and the document is not found.
+    # (default: true)
+    raise_not_found_error: false
+
+staging:
+  <<: *COMMON
+  clients:
+    default:
+      database: delicracy_production
+      username: <%= ENV['DATABASE_USERNAME'] %>
+      password: <%= ENV['DATABASE_PASSWORD'] %>

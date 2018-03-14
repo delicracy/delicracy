@@ -1,0 +1,28 @@
+<header class="navbar navbar-default navbar-fixed-top height-50">
+  <div class="container height-50">
+    <nav id="navbar">
+      <div class="navbar-header">
+        <div class="navbar-text navbar-left">
+          <%= glyphicon 'menu-hamburger', id: "main_menu", label: 'main menu', class: 'pm-link-main-menu' %>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse text-center">
+        <%= link_to root_path, class: "pm-navbar-title" do %>
+          <%= image_tag('logos/BI_white_full.png', height: '25px') %>
+        <% end %>
+        <div class="navbar-text navbar-right" style="margin-top: 10px">  
+
+        <% if logged_in? %>
+          <%= link_to glyphicon('plus', label: 'New race'), new_race_path, id: "new_race", class: "pm-link-main-menu pm-btn-nav-right" %>
+        <% else %>
+          <%= link_to login_path, class: "pm-link-main-menu pm-btn-nav-right" do %>
+            <%= glyphicon('log-in', label: 'log in') %>
+          <% end %>
+        <% end %>
+
+        </div>
+      </div>
+      <%= render "shared/flash_messages" %>
+    </nav>
+  </div>
+</header>

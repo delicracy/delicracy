@@ -1,0 +1,24 @@
+<header id="navbar_race_detail" class="navbar navbar-default navbar-fixed-top">
+  <div class="container pm-navbar-race-detail">
+    <nav>
+      <div class="navbar-header" style="width: 50px;">
+        <div class="navbar-text navbar-left">
+          <%= glyphicon 'menu-hamburger', id: "main_menu", label: 'main menu', class: 'pm-link-main-menu' %>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse text-center">
+        <%= link_to root_path, class: "pm-navbar-title" do %>
+          <%= image_tag('logos/BI_white_full.png', height: '25px') %>
+        <% end %>
+        <div class="navbar-text navbar-right" style="margin-top: 10px; width: 50px;"></div>
+
+        <% if false %>
+          <%= link_to chat_members_race_path(@race), class: "pm-text-white pm-btn-nav-right", remote: true do %>
+            <%= image_tag "icon_people.png", width: '20px' %>
+          <% end %>
+        <% end %>
+        </p>
+      </div>
+    </nav>
+  </div>
+</header>

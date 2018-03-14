@@ -1,0 +1,6 @@
+<p>
+Click and confirm that you want to sign up to Delicracy. 
+<br>This link will expire in [시간] and can only be used once.
+</p>
+
+<%= link_to "Sign up to Delicracy", edit_user_activation_url(@user.activation_token, email: @user.email) %>

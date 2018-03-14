@@ -1,0 +1,27 @@
+<p>
+Your address of Delicracy wallet is
+<pre>
+  1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX
+</pre>
+</p>
+<br>
+<h4 class="text-uppercase">Transfer BOScoin to Delicracy</h4>
+<br>
+<%= form_with model: @user do |form| %>
+  <div class="form-group">
+    <%= form.label :address, 'Type your address of BOScoin wallet.' %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= form.label :amount, 'Amount of coins to import.' %>
+    <%= form.number_field :amount, class: 'form-control' %>
+  </div>
+  <br>
+
+  <%= link_to 'Import', root_path, class: "btn btn-primary" %>
+  <%= link_to 'Cancel', root_path, class: "btn btn-default" %>
+<% end %>
+
+<%= console if Rails.env.development? %>

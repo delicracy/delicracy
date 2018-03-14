@@ -1,0 +1,7 @@
+var container = $('div.pm-container-race-detail');
+var div_members = container.find('#chat_members_list');
+if (div_members.length) {
+  div_members.show();
+} else {
+  container.prepend("<%= j render 'chat_members' %>");
+}

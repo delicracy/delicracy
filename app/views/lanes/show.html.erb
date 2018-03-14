@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h2>Lane</h2>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lane.title %>
+</p>
+
+<% if @race.prepared? %>
+  <p>
+    <strong>Lot:</strong>
+    <%= number_with_precision @lane.lot, precision: 0, delimiter: ',' %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= scaled_number @lane.price %>
+  </p>
+
+  <p>
+    <strong>Volume:</strong>
+    <%= scaled_number @lane.price %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lane.description %>
+</p>
+
+<%= link_to 'Edit', edit_race_lane_path(@race) %> |
+<%= link_to 'Destroy', [@race, @lane], method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', race_path(@race) %>
+
+<hr>
+
+<% if @race.prepared? %>
+  <h3>Transactions</h3>
+  <table class="table table-striped table-condensed">
+    <%= render @lane.offers.order(id: :desc).limit(10) %>
+  </table>
+
+  <%= render "offers/form", lane: @lane, offer: @lane.offers.new %>
+<% end %>

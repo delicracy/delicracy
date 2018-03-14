@@ -1,0 +1,85 @@
+<%= form_with model: @race, local: true, id: "race_form" do |form| %>
+	<% if race.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(race.errors.count, "error") %> prohibited this race from being saved:</h2>
+
+			<ul>
+				<% race.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+		<%= form.label :title, class: 'sr-only' %>
+		<%= form.text_field :title, id: :race_title, class: 'form-control', placeholder: 'Title' %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :description, class: 'sr-only' %>
+		<%= form.text_area :description, id: :race_description, class: 'form-control', rows: 10, placeholder: 'Description' %>
+	</div>
+
+	<div class="form-horizontal">
+		<div class="form-group">
+			<%= form.label :rule, class: "col-xs-3 control-label" %>
+			<div class="col-xs-9">
+				<%= form.select :rule, Race.rules.for_select, {}, { class: 'form-control' } %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= form.label :start_datetime, 'Start Date', class: "col-xs-3 control-label" %>
+      <div class="col-xs-9">
+        <%= date_field_tag 'start[date]', offset_datetime(@race.start_datetime, @race.time_zone).to_date %>
+        <%= select_time offset_datetime(@race.start_datetime, @race.time_zone), prefix: 'start', minute_step: 5 %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= form.label :end_datetime, 'End Date', class: "col-xs-3 control-label" %>
+      <div class="col-xs-9">
+        <%= date_field_tag 'end[date]', offset_datetime(@race.end_datetime, @race.time_zone).to_date %>
+        <%= select_time offset_datetime(@race.end_datetime, @race.time_zone), prefix: 'end', minute_step: 5 %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= form.label :time_zone, class: "col-xs-3 control-label" %>
+			<div class="col-xs-9">
+				<%= form.time_zone_select :time_zone, nil, { default: "Seoul" }, { class: 'form-control' } %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= form.label :category, class: "col-xs-3 control-label" %>
+			<div class="col-xs-9">
+				<%= form.collection_select :category_id, Category.all, :id, :name, { include_blank: true }, { class: 'form-control' } %>
+			</div>
+		</div>
+
+		<% if race.picture? %>
+			<p class="center-block">
+			<%= image_tag(race.picture_url, class: 'img-responsive') %>
+			</p>
+		<% end %>
+
+		<div class="form-group">
+			<%= form.label :picture, glyphicon('picture', label: 'picture'), class: "col-xs-3 control-label" %>
+			<div class="col-xs-9">
+				<%= form.file_field :picture, id: :race_picture, accept: 'image/jpeg, image/png, image/gif' %>
+			</div>
+			<%= form.hidden_field :picture_cache %>
+		</div>
+
+		<div class="form-group">
+			<%= form.label :youtube_url, glyphicon('facetime-video', label: 'youtube url'), class: "col-xs-3 control-label" %>
+			<div class="col-xs-9">
+				<%= form.url_field :youtube_url, id: :race_youtube_url, class: 'form-control', placeholder: 'https://youtube.com/' %>
+			</div>
+		</div>
+	</div>
+
+	<%= form.submit class: 'btn btn-primary btn-block btn-lg' %>
+<% end %>

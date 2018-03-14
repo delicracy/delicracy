@@ -1,0 +1,13 @@
+<% races.each do |race| %>
+  <div> 
+    <% race.info_for_user(current_user).each do |info| %>
+      <span class="label label-default text-uppercase pm-label-round pm-label-<%= info %>" >
+        <%= info %>
+      </span>
+    <% end %>
+    <h3 class="h5">
+      <%= link_to race.title, race, class: "text-default" %>
+    </h3>
+    <hr>
+  </div>
+<% end %>

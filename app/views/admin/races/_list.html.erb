@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>No </th>
+        <th>Title </th>
+        <th>Status </th>
+        <th>Host </th>
+        <th>Oracle </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @races.each do |race| %>
+        <tr>
+          <td></td>
+          <td><%= link_to race.title, race %></td>
+          <td><%= race.status_label %></td>
+          <td><%= race.host&.name %></td>
+          <td><%= race.oracle&.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+.pm-profile-avatar {
+  width:100%;
+  min-width:60px;
+  max-width:120px;
+}
+
+.pm-profile-detail {
+  line-height:1.8em;
+}
+
+.pm-profile-tab-count {
+  margin-left: 2.5rem;
+}

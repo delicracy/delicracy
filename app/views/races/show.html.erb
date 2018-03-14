@@ -1,0 +1,68 @@
+<% content_for :navbar do %>
+  <%= render 'layouts/navbar_detail', title_bar: main_logo_link %>
+<% end %>
+
+<h3 class="text-uppercase">Race</h3>
+<h4 class="pm-race-title"><%= @race.title %></h4>
+<p>
+<%= simple_format @race.description %>
+</p>
+
+<% if @race.prepared? %>
+  <div class="list-group-item-text pm-top-lane">
+    <span>
+      <%= @race.top_lane.title %>
+    </span>
+    <span class="pm-top-lane-chart-text pull-right">
+      <%= number_to_percentage @race.top_lane.price * 100, precision: 1 %>
+    </span>
+  </div>
+  <hr>
+  <%= content_tag :p, class: "list-group-item-text" do %>
+    <%= image_tag @race.host.avatar.url, class: 'img-circle pm-img-avatar-thumb' %>
+    <%= content_tag :strong, @race.host.name %>
+    <%= content_tag :span, " and #{@race.members.length - 1} others", class: "text-muted" %>
+  <% end %>
+<% end %>
+
+<%= render 'chart_container' if @race.prepared? %>
+<div>
+  <% if @race.picture? %>
+  <div class="spacer">
+    <%= image_tag(@race.picture_url, class: 'img-responsive img-thumbnail pm-img-detail') %>
+  </div>
+  <% end %>
+  <%= youtube_iframe @race.youtube_id if @race.youtube_id %>
+</div>
+
+<div class="spacer"></div>
+<% if (operator? and @race.preparing?) or admin? %>
+  <%= link_to 'Edit', edit_race_path(@race), class: 'btn btn-default' %>
+<% end %>
+
+<% if @race.preparing? and admin? %>
+  <%= link_to 'Start!', race_start_path(@race), method: :put, class: 'btn btn-warning' %>
+<% end %>
+
+<% if false %>
+  <%#= FIXME %>  
+  <% if admin? %>
+    <% if @race.oracle.nil? %>
+      | <%= link_to 'Assign to Oracle', race_assign_to_oracle_path(@race, current_user), method: :put, remote: false %>
+    <% else %>
+    <br>
+    Oracle: <%= @race.oracle.name %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<hr>
+<h3 class="text-uppercase">Lanes</h3>
+<%= content_tag :div, id: "lanes_list", class: "list-group", data: { length: @race.lanes.length } do %>
+  <%= render @race.lanes %>
+  <% if (@race.preparing? and operator?) or admin? %>
+    <p class="spacer"><%= link_to 'New Lane', new_race_lane_path(@race), class: "btn btn-primary btn-block", remote: true %></p>
+  <% end %>
+<% end %>
+
+<div id="lane_form"></div>

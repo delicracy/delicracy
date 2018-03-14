@@ -1,0 +1,86 @@
+<div class="panel panel-default" id="<%= lane.id %>">
+
+  <%# Titles %>
+  <div class="panel-heading" role="tab">
+    <a role="button" data-toggle="collapse" data-parent="#lanes_list" aria-expanded="true" href="#lanes_list .item-<%= lane_counter + 1 %>">
+      <div class="pm-top-lane-info">
+        <% unless lane.race.preparing? %>
+          <%= content_tag :div, nil, id: "lane_chart_maximum_#{lane_counter}", class: 'lane-chart pull-left clearfix', data: { percent: lane.price } unless lane.race.preparing? %>
+          <%= content_tag :i, nil, class: "glyphicon glyphicon-ok-sign pm-badge-bottom pm-top-lane-color" if lane.is_winner? %>
+        <% end %>
+
+        <span><%= lane.title %></span>
+        <i class="glyphicon glyphicon-menu-down text-muted pull-right"></i>
+
+        <% unless lane.race.preparing? %>
+          <br>
+          <small class="text-muted pm-text-percent">
+            <%= price_with_format lane.price %>
+          </small>
+        <% end %>
+
+      </div>
+    </a>
+  </div>
+
+  <%# Details %>
+  <div class="panel-collapse collapse item-<%= lane_counter + 1 %>" role="tabpanel">
+    <div class="panel-body">
+      <%= simple_format lane.description, class: "text-muted" %>
+      <p class="center-block">
+      <%= image_tag(lane.picture_url, class: 'img-responsive img-thumbnail pm-img-detail') if lane.picture? %>
+      </p>
+      <div> <%= youtube_iframe lane.youtube_id if lane.youtube_id %> </div>
+
+      <% if (operator? and lane.race.preparing?) or admin? %>
+        <%= link_to 'Edit', edit_race_lane_path(lane.race, lane) %> | 
+        <%= link_to 'Destroy', [lane.race, lane], method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+      <% unless lane.race.preparing? %>
+        <div class="h5">
+          <p class="text-uppercase"> 
+          <span>my in</span>
+          <span class="text-muted pull-right">
+            <%= lot_with_format current_user.lots_of_lane(lane) %>
+            <span class="small"> lots </span>
+          </span>
+          </p>
+          <hr>
+        </div>
+        <div class="h5">
+          <p class="text-uppercase"> 
+          <span>total in</span>
+          <span class="pull-right pm-text-emphasis strong">
+            <%= volume_with_format lane.in_lot * lane.price %>
+          </span>
+          <span class="text-muted pull-right"><%= lot_with_format lane.in_lot %><span class="small"> lots </span>/</span>
+          </p>
+          <hr>
+        </div>
+        <div class="h5">
+          <p class="text-uppercase"> 
+          <span>current price</span>
+          <span class="pull-right pm-text-emphasis strong">
+            <%= price_with_format lane.price, unit: false %>
+            <%# FIXME %>
+          </span>
+          </p>
+        </div>
+        <div class="h5">
+          <p class="text-uppercase"> 
+          <span>expected</span>
+          <% expected_id = "expected_volume_#{lane_counter}" %>
+          <span id="<%= expected_id %>" class="pull-right pm-text-emphasis strong">
+            -
+          </span>
+          </p>
+        </div>
+        <% unless lane.race.closed? %>
+          <%= render 'offers/form', lane: lane, offer: lane.offers.new, lane_counter: lane_counter, price: lane.price, target: expected_id %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

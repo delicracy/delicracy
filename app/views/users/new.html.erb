@@ -1,0 +1,16 @@
+<% content_for :navbar do %>
+  <%= render 'layouts/navbar_detail', title_bar: 'Sign Up' %>
+<% end %>
+
+<div class="spacer"></div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: @user, url: signup_path, local: true do |form| %>
+      <%= render "shared/error_messages", object: form.object %>
+
+      <%= render 'form', form: form %>
+      <div class="spacer"></div>
+      <%= form.submit 'Sign Up', class: 'btn btn-primary btn-block btn-lg' %>
+    <% end %>
+  </div>
+</div>

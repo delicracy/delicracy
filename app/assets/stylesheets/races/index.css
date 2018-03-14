@@ -1,0 +1,69 @@
+#race_list {
+  background-color:inherit;
+}
+
+.pm-race-category {
+  color:rgb(255,255,255);
+  font-size:16px;
+}
+
+.list-group-item-text.pm-top-lane {
+  color:#6266F6;
+  height:22px;
+  vertical-align:middle;
+  padding-top:2px;
+}
+
+.pm-top-lane-chart {
+  width:22px;
+  height:22px;
+}
+
+.pm-img-avatar-thumb {
+  width:25px;
+  margin-right:5px;
+}
+
+#race_list .list-group-item {
+  padding-top:15px;
+  padding-right:20px;
+  padding-bottom:15px;
+  padding-left:20px;
+  margin-bottom:10px;
+  border-radius:5px;
+}
+
+.pm-navbar-custom {
+  background-color:#5278f5;
+  height:79px;
+}
+
+.pm-race-title {
+  color:#303030;
+}
+
+#circle_chart {
+  vertical-align:middle;
+  display:inline-block;
+  margin-left:3px;
+}
+
+.pm-top-lane {
+  margin-top:20px;
+  margin-bottom:20px;
+  vertical-align:middle;
+  /*height:100%;*/
+}
+
+.container.pm-contents {
+  background-color:#557efb;
+  border-top:1px solid #5c84fd;
+}
+
+.pm-top-lane-info {
+  line-height:1.3em;
+}
+
+#race_list p.list-group-item-text > * {
+  vertical-align: middle;
+}

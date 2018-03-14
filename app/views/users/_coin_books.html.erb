@@ -1,0 +1,12 @@
+<% type = :default if type.nil? %>
+
+<% if coin_books.basis.nil? %>
+<tr>
+  <td><%= coin_books_counter + 1 %></td>
+  <td><%= coin_books.title %></td>
+  <td><%= coin_books.volume %></td>
+  <td><%= coin_books.balance %></td>
+</tr>
+<% else %>
+  <%= render template_path(coin_books.basis.class.name) %>
+<% end %>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Delicracy Admin', admin_root_path, class: "navbar-brand" %>
+      <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <p class="navbar-text">
+      <%= link_to 'Delicracy app', root_path %>
+      </p>
+      <ul class="nav navbar-nav navbar-right">
+        <%= navbar_menu("Races", admin_races_path) %>
+        <%= navbar_menu("Users", admin_users_path) %>
+        <p class="navbar-text navbar-right">
+          <%= link_to "Sign out", logout_path %>
+        </p>
+
+        <% if false %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
+            Dropdown<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a href="#">First Item</a></li>
+            <li role="presentation"><a href="#">Second Item</a></li>
+            <li role="presentation"><a href="#">Third Item</a></li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

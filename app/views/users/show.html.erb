@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-3">
+    <%= image_tag @user.avatar_url, class: "img-circle pm-profile-avatar" %>
+  </div>
+  <div class="col-xs-9">
+    <div class="row">
+      <div class="col-xs-5 pm-profile-detail">
+        <strong class="h4"><%= current_user.name %></strong>
+        <br>
+        <%= link_to "edit", edit_user_path(@user), class: "btn btn-default btn-xs text-uppercase" %>
+      </div>
+      <div class="col-xs-7 text-right pm-profile-detail">
+        <span class="pm-text-emphasis h4"><%= volume_with_format @user.current_balance %> </span><small class="text-muted text-uppercase">D</small>
+      </div>
+    </div>
+    <p><%= simple_format @user.description %></p>
+  </div>
+</div>
+
+<hr>
+
+<h2 class="h5 text-uppercase">
+  <small class="pm-profile-tab-count"><%= @user.races.count %> </small>
+  <br>My Race
+</h2>
+<hr>
+
+<div>
+  <%= render 'races/my_races', races: @user.races %>
+</div>

@@ -1,0 +1,26 @@
+<% content_for :navbar do %>
+  <%= render 'layouts/navbar_race_detail' %>
+<% end %>
+
+<% content_for :container do %>
+  <div id="chat_section" class="container pm-container-chat">
+    <%= render "chat", race: @race %>
+  </div>
+
+  <div class="container pm-container-race-detail">
+    <%= render "shared/main_nav" %>
+    <div id="widget_small" class="pm-race-detail pm-race-detail-small">
+      <%= render 'race_small', race: @race %>
+    </div> 
+
+    <div id="widget_regular" class="pm-race-detail pm-race-detail-regular">
+      <%= render 'race_regular', race: @race %>
+    </div>
+
+    <div id="widget_large" class="pm-race-detail pm-race-detail-large">
+      <%= render 'race_large', race: @race %>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: 'layouts/application' %>

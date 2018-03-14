@@ -1,0 +1,8 @@
+<%= with_no_contents @histories do %>
+  <div class="tab-pane active" role="tabpanel" id="transactions-<%= @type %>">
+    <% @histories.recent.each do |history| %>
+      <%= render "histories/#{history.name}", history: history %>
+    <% end %>
+  </div>
+<% end %>
+

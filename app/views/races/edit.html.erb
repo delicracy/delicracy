@@ -1,0 +1,8 @@
+<% content_for :navbar do %>
+  <%= render 'layouts/navbar_detail', title_bar: 'Edit Race' %>
+<% end %>
+
+<div class="spacer"></div>
+<%= render 'form', race: @race %>
+<br>
+<%= link_to 'Delete Race', @race, method: :delete, class: 'btn btn-danger btn-block btn-lg', data: { confirm: 'Are you sure?' } %>

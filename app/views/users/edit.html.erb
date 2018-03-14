@@ -1,0 +1,11 @@
+<h1>Edit profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: @user, local: true do |form| %>
+      <%= render 'shared/error_messages', object: form.object %>
+      <%= render "form", form: form %>
+      <%= form.submit "Save changes", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

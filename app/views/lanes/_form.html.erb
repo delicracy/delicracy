@@ -1,0 +1,50 @@
+<%= form_with(model: [lane.race, lane], local: true) do |form| %>
+  <% if lane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lane.errors.count, "error") %> prohibited this lane from being saved:</h2>
+
+      <ul>
+      <% lane.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <%= form.label :title, 'Lane Title', class: 'sr-only' %>
+      <%= form.text_field :title, id: :lane_title, class: "form-control", placeholder: 'Lane Title' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description, 'Lane Description', class: 'sr-only' %>
+      <%= form.text_area :description, id: :lane_description, class: "form-control", placeholder: 'Lane Description', rows: 5 %>
+    </div>
+
+    <% if lane.picture? %>
+      <p class="center-block">
+      <%= image_tag(lane.picture_url, class: 'img-responsive') %>
+      </p>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :picture, glyphicon('camera', label: 'Picture'), class: 'col-xs-2 text-right' %>
+      <div class="col-xs-10">
+        <%= form.file_field :picture, id: :lane_picture, accept: 'image/jpeg, image/png, image/gif' %>
+        <%= form.hidden_field :picture_cache %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :youtube, glyphicon('facetime-video', label: 'youtube url'), class: 'col-xs-2 control-label' %>
+      <div class="col-xs-10">
+        <%= form.url_field :youtube_url, id: :lane_youtube_url, class: 'form-control', placeholder: 'https://youtube.com/' %>
+      </div>
+    </div>
+
+    <div class="actions pull-right">
+      <%= form.submit 'Save Lane', class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>
